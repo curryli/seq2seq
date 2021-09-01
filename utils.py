@@ -3,10 +3,12 @@ import spacy
 from torchtext.data import Field, BucketIterator
 from torchtext.datasets import Multi30k
 
+from spacy.lang.en import English
+from spacy.lang.de import German
 
 def load_dataset(batch_size):
-    spacy_de = spacy.load('de')
-    spacy_en = spacy.load('en')
+    spacy_en = English()
+    spacy_de = German()
     url = re.compile('(<url>.*</url>)')
 
     def tokenize_de(text):
